@@ -3,6 +3,8 @@ package org.example;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
+import java.util.List;
+
 public class PersonDAO {
 
     EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
@@ -53,4 +55,5 @@ public class PersonDAO {
         em.getTransaction().commit();
         em.close();
     }
+
 }
