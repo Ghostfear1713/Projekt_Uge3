@@ -20,7 +20,7 @@ public class HibernateConfig {
 
             Properties props = new Properties();
 
-            props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/exercise?currentSchema=public");
+            props.put("hibernate.connection.url", "jdbc:postgresql://localhost:5432/hobbyproject");
             props.put("hibernate.connection.username", "postgres");
             props.put("hibernate.connection.password", "postgres");
 
@@ -53,7 +53,7 @@ public class HibernateConfig {
 
     private static void getAnnotationConfiguration(Configuration configuration) {
         // add annotated classes
-        // configuration.addAnnotatedClass(<YOUR ENTITY>.class);
+        configuration.addAnnotatedClass(Person.class);
     }
 
     public static EntityManagerFactory getEntityManagerFactoryConfig() {
