@@ -54,6 +54,7 @@ public class HibernateConfig {
     private static void getAnnotationConfiguration(Configuration configuration) {
         // add annotated classes
         configuration.addAnnotatedClass(Person.class);
+        configuration.addAnnotatedClass(PersonDAO.class);
     }
 
     public static EntityManagerFactory getEntityManagerFactoryConfig() {

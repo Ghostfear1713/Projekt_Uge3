@@ -36,4 +36,14 @@ public class Person {
         this.email = email;
         this.age = age;
     }
+
+    @Override
+    public String toString() {
+        return "Person ID #" + id + ": " + "\nFirstName: " + firstName +
+                " \nLastName: " + lastName +
+                " \nAddress: " + address + "\nPhonenumber: " + phoneNumber + "\nEmail: " + email + "\nAge: " + age + " \n______________________________";
+    }
+
+
+
 }

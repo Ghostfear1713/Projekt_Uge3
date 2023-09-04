@@ -11,8 +11,9 @@ public class Main {
         Person p3 = new Person("Sofie", "Soerensen", "Strandstræde, 8. 3. tv.", 76414721, "sofies@mail.dk", 28);
 
         PersonDAO persondao = new PersonDAO();
-        persondao.createPersons(p3);
-        persondao.getAllPersons();
+        //persondao.createPersons(p2);
+        //persondao.getAllPersons();
+        persondao.deletePerson(8);
 
     }
 
