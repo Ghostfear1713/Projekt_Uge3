@@ -28,6 +28,7 @@ public class Hobby {
     @OneToMany(mappedBy = "hobby")
     private List<Person> persons = new ArrayList<>();
 
+
     public Hobby(String name, String wikiLink, String category, String type) {
         this.name = name;
         this.wikiLink = wikiLink;

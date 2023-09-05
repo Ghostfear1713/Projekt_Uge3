@@ -4,6 +4,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,8 +27,16 @@ public class Person {
     private String hobbyName;
 
     @ManyToOne
+    @JoinColumn(name = "zip") //foreign key column in the Person table
+    private CityInfo zip;
+
+    @ManyToOne
     @JoinColumn(name = "hobby_id")
     private Hobby hobby;
+
+    @ManyToMany
+    @JoinTable(name = "person_hobby", joinColumns = @JoinColumn(name = "person_id"), inverseJoinColumns = @JoinColumn(name = "hobby_id"))
+    private List<Hobby> hobbies;
 
     public Person(String firstName, String lastName, String address, int phoneNumber, String email, int age, String hobbyName) {
         this.firstName = firstName;

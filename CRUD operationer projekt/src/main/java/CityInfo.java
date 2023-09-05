@@ -4,6 +4,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -22,6 +24,9 @@ public class CityInfo {
     private String region_name;
 
     private String municipality_name;
+
+    @OneToMany(mappedBy = "zip") // mappedBy refers to the 'zipcode' field in the Person entity
+    private List<Person> persons;
 
 
     public CityInfo(Integer zip, String city_name) {
