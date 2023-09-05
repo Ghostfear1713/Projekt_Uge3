@@ -1,12 +1,5 @@
-package org.example;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.TypedQuery;
-
-import java.util.List;
-
-import static org.hibernate.internal.util.collections.ArrayHelper.forEach;
 
 public class HobbyDAO {
 
@@ -40,4 +33,7 @@ public class HobbyDAO {
         em.getTransaction().commit();
         em.close();
     }
+
+
+
 }

@@ -1,5 +1,3 @@
-package org.example;
-
 import jakarta.persistence.EntityManagerFactory;
 import lombok.NoArgsConstructor;
 import org.hibernate.SessionFactory;
@@ -57,6 +55,8 @@ public class HibernateConfig {
         configuration.addAnnotatedClass(PersonDAO.class);
         configuration.addAnnotatedClass(Hobby.class);
         configuration.addAnnotatedClass(HobbyDAO.class);
+        configuration.addAnnotatedClass(CityInfo.class);
+        configuration.addAnnotatedClass(CityInfoDAO.class);
     }
 
     public static EntityManagerFactory getEntityManagerFactoryConfig() {

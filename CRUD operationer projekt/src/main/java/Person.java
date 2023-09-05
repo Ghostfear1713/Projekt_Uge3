@@ -1,5 +1,3 @@
-package org.example;
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,7 +26,7 @@ public class Person {
 
     @ManyToOne
     @JoinColumn(name = "hobby_id")
-    private org.example.Hobby hobby;
+    private Hobby hobby;
 
     public Person(String firstName, String lastName, String address, int phoneNumber, String email, int age, String hobbyName) {
         this.firstName = firstName;

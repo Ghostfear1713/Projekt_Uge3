@@ -1,9 +1,5 @@
-package org.example;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-
-import java.util.List;
 
 public class PersonDAO {
 
