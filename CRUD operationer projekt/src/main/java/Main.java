@@ -15,7 +15,9 @@ public class Main {
         //persondao.getAllPersons();
         //persondao.deletePerson();
 
-        cityInfoDAO.getAllZipcodes();
+        //cityInfoDAO.getAllZipcodes();
+
+        persondao.getInformationByPhoneNumber(34362359);
 
         }
     }
