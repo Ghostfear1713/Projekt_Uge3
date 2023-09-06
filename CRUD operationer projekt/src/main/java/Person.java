@@ -38,7 +38,7 @@ public class Person {
     @JoinTable(name = "person_hobby", joinColumns = @JoinColumn(name = "person_id"), inverseJoinColumns = @JoinColumn(name = "hobby_id"))
     private List<Hobby> hobbies;
 
-    public Person(String firstName, String lastName, String address, int phoneNumber, String email, int age, String hobbyName) {
+    public Person(String firstName, String lastName, String address, int phoneNumber, String email, int age, String hobbyName, CityInfo zip) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -46,9 +46,8 @@ public class Person {
         this.email = email;
         this.age = age;
         this.hobbyName = hobbyName;
+        this.zip = zip;
     }
-
-
 
     @Override
     public String toString() {

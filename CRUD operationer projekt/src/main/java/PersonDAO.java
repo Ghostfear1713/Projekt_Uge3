@@ -61,4 +61,15 @@ public class PersonDAO {
         em.close();
     }
 
+    public Person findByZip (CityInfo zip){
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        //em.find - We're searching in the class, Person, and want to find the ID attribute
+        Person foundZip = em.find(Person.class, zip);
+        if(foundZip == null){
+            System.out.println("The zip you provided does not exist");
+        }
+        em.close();
+        return  foundZip;
+    }
 }
