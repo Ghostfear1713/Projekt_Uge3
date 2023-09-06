@@ -2,7 +2,18 @@
 
 ### The main goal
 
-The business idea is to create a platform that not only provides information about people and their hobbies but also offers a matchmaking service. Users can input their hobbies and interests, and the platform can connect them with like-minded individuals or groups in their local area. This would add a social networking element to the service and encourage people to explore new hobbies together, fostering real-world connections.
+Our business idea is simple - hook up with future friends that share the same hobby's and interest as yourself. Expand your friend group with different levels of sports, to help others and improve or to challenge yourself with different competitions.
+
+We are striving to make a database that will allow people to look up popularities in different sports fields, to match and expand their social-network.
+
+
+### Domain Model
+![img.png](CRUD%20operationer%20projekt%2Fsrc%2Fimg%2Fimg.png)
+
+### EER-diagram
+![Screenshot 2023-09-06 at 22.18.20.png](CRUD%20operationer%20projekt%2Fsrc%2Fimg%2FScreenshot%202023-09-06%20at%2022.18.20.png)
+
+
 
 ### User stories
 [US-1] As a user I want to get all the information about a person
