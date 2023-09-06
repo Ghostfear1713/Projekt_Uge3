@@ -1,5 +1,3 @@
-package org.example;
-
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
@@ -53,4 +51,14 @@ public class PersonDAO {
         em.getTransaction().commit();
         em.close();
     }
+
+    public void getInformationByPhoneNumber(int phoneNumber) {
+
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        em.createQuery("SELECT p FROM Person p WHERE p.phoneNumber = :phoneNumber", Person.class).setParameter("phoneNumber", phoneNumber).getResultList().forEach(System.out::println);
+        em.getTransaction().commit();
+        em.close();
+    }
+
 }
