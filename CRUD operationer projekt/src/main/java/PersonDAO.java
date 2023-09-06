@@ -4,46 +4,47 @@ import jakarta.persistence.EntityManagerFactory;
 public class PersonDAO {
 
     EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
-    public void createPersons(Person person){
+
+    public void createPersons(Person person) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        if(person != null){
+        if (person != null) {
             em.persist(person);
             System.out.println("You have successfully added: \n" + person.toString());
-        } else{
+        } else {
             System.out.println("An error has occured. No object was added to the DB.");
         }
         em.getTransaction().commit();
         em.close();
     }
 
-    public Person findById (int id){
+    public Person findById(int id) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         //em.find - We're searching in the class, Person, and want to find the ID attribute
         Person foundPerson = em.find(Person.class, id);
-        if(foundPerson == null){
+        if (foundPerson == null) {
             System.out.println("The ID you provided does not exist");
         }
         em.close();
-        return  foundPerson;
+        return foundPerson;
     }
 
-    public void deletePerson(int id){
+    public void deletePerson(int id) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         Person personToDelete = em.find(Person.class, id);
-        if(personToDelete != null){
+        if (personToDelete != null) {
             System.out.println("Person with following information will now be deleted \n" + personToDelete.toString());
             em.remove(personToDelete);
-        } else{
+        } else {
             System.out.println("An error has occured - No person was deleted");
         }
         em.getTransaction().commit();
         em.close();
     }
 
-    public void getAllPersons(){
+    public void getAllPersons() {
 
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -61,15 +62,15 @@ public class PersonDAO {
         em.close();
     }
 
-    public Person findByZip (CityInfo zip){
+    public Person findByZip(CityInfo zip) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        //em.find - We're searching in the class, Person, and want to find the ID attribute
         Person foundZip = em.find(Person.class, zip);
-        if(foundZip == null){
-            System.out.println("The zip you provided does not exist");
+        if (foundZip == null) {
+            System.out.println("No person found with the provided zip: " + zip);
         }
         em.close();
-        return  foundZip;
+        return foundZip;
     }
+
 }
