@@ -3,8 +3,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.sql.exec.spi.StandardEntityInstanceResolver;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Getter
 @Setter
@@ -21,7 +24,7 @@ public class Person {
     private String firstName;
     private String lastName;
     private String address;
-    private int phoneNumber;
+    private String phoneNumber;
     private String email;
     private int age;
     private String hobbyName;
@@ -38,11 +41,11 @@ public class Person {
     @JoinTable(name = "person_hobby", joinColumns = @JoinColumn(name = "person_id"), inverseJoinColumns = @JoinColumn(name = "hobby_id"))
     private List<Hobby> hobbies;
 
-    public Person(String firstName, String lastName, String address, int phoneNumber, String email, int age, String hobbyName) {
+    public Person(String firstName, String lastName, String address, String phoneNumber, String email, int age, String hobbyName) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
-        this.phoneNumber = phoneNumber;
+        setPhoneNumber(phoneNumber);
         this.email = email;
         this.age = age;
         this.hobbyName = hobbyName;
@@ -81,12 +84,20 @@ public class Person {
         this.address = address;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setPhoneNumber(String phoneNumber) {
+
+        Pattern pattern = Pattern.compile("^\\+45\\d{8}$"); //valider, formatet er +45 og 8 tal
+        Matcher matcher = pattern.matcher(phoneNumber);
+
+        if (matcher.matches()) {
+            this.phoneNumber = phoneNumber;
+        } else {
+            throw new IllegalArgumentException("Invalid phone number format. Danish numbers should start with '+45' and have 8 digits.");
+        }
     }
 
     public String getEmail() {
