@@ -3,6 +3,8 @@ package org.example;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
+import java.util.List;
+
 public class PersonDAO {
 
     EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
@@ -53,4 +55,19 @@ public class PersonDAO {
         em.getTransaction().commit();
         em.close();
     }
+
+    //TODO
+    //MAKE A METHOD THAT UPDATES A PHONENUMBER
+
+//    public void updatePerson(int id){
+//        EntityManager em = emf.createEntityManager();
+//        em.getTransaction().begin();
+//        Person mergedPerson = findById(1);
+//
+//        em.getTransaction().commit();
+//        em.close();
+//    }
+
+
+
 }

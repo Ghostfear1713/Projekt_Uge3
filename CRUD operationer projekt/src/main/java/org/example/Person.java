@@ -1,13 +1,14 @@
 package org.example;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -27,15 +28,27 @@ public class Person {
     private int phoneNumber;
     private String email;
     private int age;
+    private String hobby;
 
-    public Person(String firstName, String lastName, String address, int phoneNumber, String email, int age) {
+    public Person(String firstName, String lastName, String address, String email, int age, String hobby) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
-        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.age = age;
+        this.hobby = hobby;
+    }
+
+    public Person(String firstName, String lastName, String address, String email, int age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
         this.email = email;
         this.age = age;
     }
+
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    private Set<PhoneNumber> phoneNumbersFromPerson = new HashSet<>();
 
     @Override
     public String toString() {
@@ -44,6 +57,12 @@ public class Person {
                 " \nAddress: " + address + "\nPhonenumber: " + phoneNumber + "\nEmail: " + email + "\nAge: " + age + " \n______________________________";
     }
 
+    public void addPersonNumber(PhoneNumber phoneNumber){
+    this.phoneNumbersFromPerson.add(phoneNumber);
+    if(phoneNumbersFromPerson != null){
+        phoneNumber.setPerson(this);
+        }
+    }
 
 
 }
