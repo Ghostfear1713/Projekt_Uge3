@@ -5,6 +5,10 @@ public class Main {
 
         PersonDAO persondao = new PersonDAO();
         PhoneNumberDAO phoneNumberDAO = new PhoneNumberDAO();
+        Hobby hobby = new Hobby();
+        HobbyDAO hobbyDAO = new HobbyDAO();
+        CityInfoDAO cityInfoDAO = new CityInfoDAO();
+
         PhoneNumber phoneNumber = new PhoneNumber("+45 42420612");
         PhoneNumber phoneNumber1 = new PhoneNumber("+45 35354949");
         PhoneNumber phoneNumber2 = new PhoneNumber("+45 30228291");
@@ -17,12 +21,6 @@ public class Main {
         PhoneNumber phoneNumber9 = new PhoneNumber("+45 24466589");
         PhoneNumber phoneNumbe10 = new PhoneNumber("+45 44556677");
 
-
-        Hobby hobby = new Hobby();
-        HobbyDAO hobbyDAO = new HobbyDAO();
-
-
-
         Person p1 = new Person("Ketild", "Hansen", "Pjuskepuskvej 32", "drpjuskepusk@mail.dk", 53, AgeGroup.ADULT);
         Person p2 = new Person("Abdi", "Hamad", "Pilegaardsvej, 38. st. tv.", "abdih@mail.dk", 25, AgeGroup.ADULT);
         Person p3 = new Person("Sofie", "Soerensen", "Strandstræde, 8. 3. tv.", "sofies@mail.dk", 28, AgeGroup.ADULT);
@@ -34,21 +32,22 @@ public class Main {
         Person p9 = new Person("Mogens", "Larsen", "Ballerupsvej 83 2. th", "Mogens@live.dk", 78, "Cricket", AgeGroup.SENIOR);
         Person p10 = new Person("Celine", "Petersen", "Søllegård 17", "Celine@live.dk", 14, "Tennis", AgeGroup.JUNIOR);
 
+        //virker ikke -> cityInfoDAO.getAllZipcodes();
+
+        persondao.createPersons(p1);
+        persondao.createPersons(p2);
+        persondao.createPersons(p3);
+        persondao.createPersons(p4);
+        persondao.createPersons(p5);
+        persondao.createPersons(p6);
+        persondao.createPersons(p7);
+        persondao.createPersons(p8);
+        persondao.createPersons(p9);
+        persondao.createPersons(p10);
 
         //hobbyDAO.getAllHobbiesFromPerson("Swimming");
-//        String hobbyToCount = "Swimming";
-//        Long count = hobbyDAO.getNumberOfPeopleWithHobby(hobbyToCount);
-//        System.out.println("Number of people with the hobby " + hobbyToCount + ": " + count);
 
-        //hobbyDAO.getNumberOfPeopleWithHobby("swimming");
 
-        //hobbyDAO.getAllHobiesAndTheCount();
-
-        //p10.addPersonNumber(phoneNumber9);
-        //persondao.createPersons(p10);
-
-        persondao.getAllPersons();
-        //phoneNumberDAO.getAllPhoneNumbersByPersonNameCaseNoneSensitive("Sofie");
 
 
     }

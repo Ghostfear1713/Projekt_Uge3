@@ -8,7 +8,7 @@ public class CityInfoDAO {
 
 
     EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
-    public void getAllZipcodes(){
+    public void getAllZipcodes() {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         em.createQuery("SELECT c FROM CityInfo c", CityInfo.class).getResultList().forEach(System.out::println);

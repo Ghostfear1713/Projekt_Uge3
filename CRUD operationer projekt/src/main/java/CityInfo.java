@@ -25,7 +25,7 @@ public class CityInfo {
 
     private String municipality_name;
 
-    @OneToMany(mappedBy = "zip") // mappedBy refers to the 'zipcode' field in the Person entity
+    @OneToMany(mappedBy = "zip") // mappedBy refers to the 'zip' field in the Person entity
     private List<Person> persons;
 
 

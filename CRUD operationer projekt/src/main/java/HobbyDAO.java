@@ -11,7 +11,7 @@ public class HobbyDAO {
 
     //find how many there are on a hobby by the name, and show the people on the hobby
 
-    public List<Person> createHobby(Hobby hobby) {
+    /*public List<Person> createHobby(Hobby hobby) {
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         if (hobby != null) {
@@ -20,7 +20,9 @@ public class HobbyDAO {
         } else {
             System.out.println("An error has occured. No object was added to the DB.");
         }
+        return <List> hobby;
     }
+     */
 
     public List<Person> getAllHobbiesFromPerson(String hobby) {
         em.getTransaction().begin();
