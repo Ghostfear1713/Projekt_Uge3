@@ -1,5 +1,8 @@
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.TypedQuery;
+
+import java.util.List;
 
 public class PersonDAO {
 
@@ -73,4 +76,24 @@ public class PersonDAO {
         return foundZip;
     }
 
+
+    public List<Person> getPersonInACity(String city) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        TypedQuery<Person> query = em.createQuery("SELECT p FROM Person p WHERE LOWER (p.address.city) = LOWER(:city)", Person.class);
+        query.setParameter("city", city);
+        em.getTransaction().commit();
+        em.close();
+        return query.getResultList();
+    }
+
+    public List<Person> getPersonByZip(String zip) {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        TypedQuery<Person> query = em.createQuery("SELECT p FROM Person p WHERE LOWER (p.zip) = LOWER(:zip)", Person.class);
+        query.setParameter("city", zip);
+        em.getTransaction().commit();
+        em.close();
+        return query.getResultList();
+    }
 }
