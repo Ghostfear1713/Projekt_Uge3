@@ -8,7 +8,6 @@ public class Main {
 
         PersonDAO persondao = new PersonDAO();
         PhoneNumberDAO phoneNumberDAO = new PhoneNumberDAO();
-        PhoneNumber phoneNumber = new PhoneNumber("+45 42420612");
         PhoneNumber phoneNumber1 = new PhoneNumber("+45 35354949");
         PhoneNumber phoneNumber2 = new PhoneNumber("+45 30228291");
         PhoneNumber phoneNumber3 = new PhoneNumber("+45 21348293");
@@ -16,59 +15,52 @@ public class Main {
         PhoneNumber phoneNumber5 = new PhoneNumber("+45 24423465");
         PhoneNumber phoneNumber6 = new PhoneNumber("+45 20932222");
         PhoneNumber phoneNumber7 = new PhoneNumber("+45 52455423");
-        PhoneNumber phoneNumber8 = new PhoneNumber("+45 837233211");
-        PhoneNumber phoneNumber9 = new PhoneNumber("24466589");
-        PhoneNumber phoneNumbe10 = new PhoneNumber("+45 44556677");
-        PhoneNumber phoneNumber10 = new PhoneNumber("99332111");
+        PhoneNumber phoneNumber8 = new PhoneNumber("+45 83723321");
+        PhoneNumber phoneNumber9 = new PhoneNumber("+45 24466589");
+        PhoneNumber phoneNumber10 = new PhoneNumber("+45 44556677");
+        PhoneNumber phoneNumber11 = new PhoneNumber("+45 99332111");
+        PhoneNumber phoneNumber12 = new PhoneNumber("+45 42420612");
 
 
         Hobby hobby = new Hobby();
         HobbyDAO hobbyDAO = new HobbyDAO();
 
 
-
-        Person p1 = new Person("Ketild", "Hansen", "Pjuskepuskvej 32", "drpjuskepusk@mail.dk", 53, AgeGroup.Adult);
-        Person p2 = new Person("Abdi", "Hamad", "Pilegaardsvej, 38. st. tv.", "abdih@mail.dk", 25, AgeGroup.Adult);
-        Person p3 = new Person("Sofie", "Soerensen", "Strandstræde, 8. 3. tv.", "sofies@mail.dk", 28, AgeGroup.Adult);
-        Person p4 = new Person("Orhan", "Secilmis", "Pilegårdsvej 61", "Uniton@live.dk", 27, AgeGroup.Adult);
-        Person p5 = new Person("Kyle", "Johansen", "Vejlebrovej 115 1 mf", "Kyle@mail.dk", 50, "Swimming", AgeGroup.Adult);
-        Person p6 = new Person("Hermano", "Lorenzo", "Tuborgsvej 1", "Hermano@mail.dk", 22, "Swimming", AgeGroup.Adult);
-        Person p7 = new Person("Freak", "West", "Gangmøllersvej 86", "Freak@mail.dk", 16, "Tenis", AgeGroup.Junior);
-        Person p8 = new Person("Johnny", "Poulsen", "Odinsvej 23", "Johnny@live.dk", 33, "Tennis", AgeGroup.Adult);
-        Person p9 = new Person("Mogens", "Larsen", "Ballerupsvej 83 2. th", "Mogens@live.dk", 78, "Cricket", AgeGroup.Senior);
-        Person p10 = new Person("Celine", "Petersen", "Søllegård 17", "Celine@live.dk", 14, "Tennis", AgeGroup.Junior);
-
+        Person p1 = new Person("Ketild", "Hansen", "Pjuskepuskvej 32", "drpjuskepusk@mail.dk", 53, "Professional Pimp", "Lyngby", AgeGroup.Adult);
+        Person p2 = new Person("Abdi", "Hamad", "Pilegaardsvej, 38. st. tv.", "abdih@mail.dk", 25, "Professional Pimp", "Lyngby", AgeGroup.Adult);
+        Person p3 = new Person("Sofie", "Soerensen", "Strandstræde, 8. 3. tv.", "sofies@mail.dk", 28, "Professional Pimp", "Lyngby", AgeGroup.Adult);
+        Person p4 = new Person("Orhan", "Secilmis", "Pilegårdsvej 61", "Uniton@live.dk", 27, "Professional Pimp", "Lyngby", AgeGroup.Adult);
+        Person p5 = new Person("Kyle", "Johansen", "Vejlebrovej 115 1 mf", "Kyle@mail.dk", 50, "Swimming", "Lyngby", AgeGroup.Adult);
+        Person p6 = new Person("Hermano", "Lorenzo", "Tuborgsvej 1", "Hermano@mail.dk", 22, "Swimming", "Lyngby", AgeGroup.Adult);
+        Person p7 = new Person("Freak", "West", "Gangmøllersvej 86", "Freak@mail.dk", 16, "Tenis", "Lyngby", AgeGroup.Junior);
+        Person p8 = new Person("Johnny", "Poulsen", "Odinsvej 23", "Johnny@live.dk", 33, "Tennis", "Hillerød", AgeGroup.Adult);
+        Person p9 = new Person("Mogens", "Larsen", "Ballerupsvej 83 2. th", "Mogens@live.dk", 78, "Cricket", "Hillerød", AgeGroup.Senior);
+        Person p10 = new Person("Celine", "Petersen", "Søllegård 17", "Celine@live.dk", 14, "Tennis", "Hillerød", AgeGroup.Junior);
         Person p11 = new Person("Foxy", "Love", "Vejlebrovej", "uniton@live.dk", 30, "Swimming", "Lyngby", AgeGroup.Adult);
         Person p12 = new Person("Foxiana", "Pure", "Hangover", "hahaa@live.dk", 30, "Shooting", "Lyngby", AgeGroup.Adult);
 
+//        Person oldPerson = persondao.findById(3);
+//        oldPerson.setFirstName("Philip");
+//        persondao.updatePerson(oldPerson);
 
-        //hobbyDAO.getAllHobbiesFromPerson("Swimming");
-//        String hobbyToCount = "Swimming";
-//        Long count = hobbyDAO.getNumberOfPeopleWithHobby(hobbyToCount);
-//        System.out.println("Number of people with the hobby " + hobbyToCount + ": " + count);
-
-        //hobbyDAO.getNumberOfPeopleWithHobby("swimming");
-
-        Person person = persondao.findById(1);
-        PhoneNumber newNumber = phoneNumberDAO.createPhoneNumber(phoneNumber10);
-        person.addPersonNumber(newNumber);
-        persondao.updatePerson(person);
-        System.out.println(person.getPhoneNumbersFromPerson());
+          //create a person with a phone number
+//          p1.addPersonNumber(phoneNumber1);
+//          persondao.createPersons(p1);
 
 
 
-        //hobbyDAO.getAllHobiesAndTheCount();
+        //phoneNumberDAO.getAllPhoneNumbersByPersonNameCaseNoneSensitive("Ketild");
 
-        //p12.addPersonNumber(phoneNumber9);
 
-        //persondao.createPersons(p12);
+        //create a person with a phone number
+//        Person personWeWantToAddNewPhoneNumberToo = persondao.findById(2);
+//        personWeWantToAddNewPhoneNumberToo.addPersonNumber(phoneNumberDAO.createPhoneNumber(phoneNumber5));
+//        persondao.updatePerson(personWeWantToAddNewPhoneNumberToo);
+//        phoneNumberDAO.getAllPhoneNumbersByPersonNameCaseNoneSensitive("Abdi");
 
-        //persondao.getAllPersons();
-        //phoneNumberDAO.getAllPhoneNumbersByPersonNameCaseNoneSensitive("Sofie");
 
-        //persondao.getPersonsInCity("søborg");
 
+        hobbyDAO.getAllHobbiesAndTheCount();
 
     }
-
 }

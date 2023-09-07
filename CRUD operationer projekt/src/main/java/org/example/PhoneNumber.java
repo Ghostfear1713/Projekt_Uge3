@@ -1,7 +1,6 @@
 package org.example;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,7 +18,6 @@ public class PhoneNumber {
  private Integer iD;
  /* specifies a regular expression pattern for Danish phone numbers. The \\+45 \\d{8} pattern matches the format "+45"
     followed by eight digits. If the phone number doesn't match this format, a validation error message will be generated.*/
-    @Pattern(regexp = "\\+45 \\d{8}", message = "Phone number must follow Danish format: +45 12345678")
     private String number;
 
  //Will persist both the personobject and the phonenumber whenever we persist a person to DB

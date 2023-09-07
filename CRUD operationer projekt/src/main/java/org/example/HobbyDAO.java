@@ -10,7 +10,7 @@ public class HobbyDAO {
 
 
 
-    public List<Person> getAllHobbiesFromPerson(String hobby){
+    public List<Person> getAllPersonsWithSpecificHobby(String hobby){
         em.getTransaction().begin();
         // :hobby is the parameter we set to the hobby we want to search for
         TypedQuery<Person> query = em.createQuery("SELECT p FROM Person p WHERE LOWER(p.hobby) = LOWER(:hobby)", Person.class).setParameter("hobby", hobby);
@@ -38,7 +38,7 @@ public class HobbyDAO {
         return count;
     }
 
-    public void getAllHobiesAndTheCount(){
+    public void getAllHobbiesAndTheCount(){
         em.getTransaction().begin();
         TypedQuery<Object[]> query = em.createQuery("SELECT p.hobby, COUNT(p) FROM Person p GROUP BY p.hobby", Object[].class);
         List<Object[]> results = query.getResultList();
