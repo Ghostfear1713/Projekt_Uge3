@@ -39,9 +39,10 @@ public class Main {
         Person p11 = new Person("Foxy", "Love", "Vejlebrovej", "uniton@live.dk", 30, "Swimming", "Lyngby", AgeGroup.Adult);
         Person p12 = new Person("Foxiana", "Pure", "Hangover", "hahaa@live.dk", 30, "Shooting", "Lyngby", AgeGroup.Adult);
 
-//        Person oldPerson = persondao.findById(3);
-//        oldPerson.setFirstName("Philip");
-//        persondao.updatePerson(oldPerson);
+        Person oldPerson = persondao.findById(2);
+        oldPerson.setFirstName("Philip");
+        persondao.updatePerson(oldPerson);
+
 
           //create a person with a phone number
 //          p1.addPersonNumber(phoneNumber1);

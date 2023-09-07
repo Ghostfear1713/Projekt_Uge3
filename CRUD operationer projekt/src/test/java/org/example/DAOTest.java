@@ -24,11 +24,13 @@ class DAOTest {
 
     @Test
     void createPersons() {
+
+
     }
     @Test
     void updatePerson(){
         Person person = personDAO.findById(1);
-        person.setFirstName("Orhan");
+        person.setFirstName("Signe");
         personDAO.updatePerson(person);
 
         Person personAfter = personDAO.findById(1);
