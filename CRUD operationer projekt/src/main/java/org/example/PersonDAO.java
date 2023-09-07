@@ -74,7 +74,6 @@ public class PersonDAO {
                 setParameter("city", city);
         query.getResultList().forEach(System.out::println);
         return query.getResultList();
-
     }
 
 

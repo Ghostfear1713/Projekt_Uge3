@@ -32,7 +32,13 @@ public class PhoneNumberDAO {
         em.close();
     }
 
-
+    public PhoneNumber createPhoneNumber(PhoneNumber phoneNumber){
+        em.getTransaction().begin();
+        em.persist(phoneNumber);
+        em.getTransaction().commit();
+        em.close();
+        return phoneNumber;
+    }
 
 
 

@@ -19,6 +19,7 @@ public class Main {
         PhoneNumber phoneNumber8 = new PhoneNumber("+45 837233211");
         PhoneNumber phoneNumber9 = new PhoneNumber("24466589");
         PhoneNumber phoneNumbe10 = new PhoneNumber("+45 44556677");
+        PhoneNumber phoneNumber10 = new PhoneNumber("99332111");
 
 
         Hobby hobby = new Hobby();
@@ -48,16 +49,24 @@ public class Main {
 
         //hobbyDAO.getNumberOfPeopleWithHobby("swimming");
 
+        Person person = persondao.findById(1);
+        PhoneNumber newNumber = phoneNumberDAO.createPhoneNumber(phoneNumber10);
+        person.addPersonNumber(newNumber);
+        persondao.updatePerson(person);
+        System.out.println(person.getPhoneNumbersFromPerson());
+
+
+
         //hobbyDAO.getAllHobiesAndTheCount();
 
-        p12.addPersonNumber(phoneNumber9);
+        //p12.addPersonNumber(phoneNumber9);
 
-        persondao.createPersons(p12);
+        //persondao.createPersons(p12);
 
         //persondao.getAllPersons();
         //phoneNumberDAO.getAllPhoneNumbersByPersonNameCaseNoneSensitive("Sofie");
 
-        //persondao.getPersonsInCity("Lyngby");
+        //persondao.getPersonsInCity("søborg");
 
 
     }

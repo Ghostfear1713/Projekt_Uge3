@@ -64,7 +64,8 @@ public class Person {
     @Enumerated(EnumType.STRING)
     private AgeGroup ageGroup;
 
-    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    //fetchtype.eager = loads everything from a person (Lazy error fixed with fetch)
+    @OneToMany(mappedBy = "person", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<PhoneNumber> phoneNumbersFromPerson = new HashSet<>();
 
     @Override
