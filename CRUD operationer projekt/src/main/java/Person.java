@@ -1,10 +1,9 @@
-package org.example;
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
 
 import java.util.HashSet;
 import java.util.List;
@@ -62,10 +61,10 @@ public class Person {
                 " \nAddress: " + address + "\nHobby: " + hobby + "\nEmail: " + email + "\nAge: " + age + " \n______________________________";
     }
 
-    public void addPersonNumber(PhoneNumber phoneNumber){
+    public void addPersonNumber(PhoneNumber phoneNumber) {
     this.phoneNumbersFromPerson.add(phoneNumber);
     if(phoneNumbersFromPerson != null){
-        phoneNumber.setPerson(this);
+        phoneNumber.setPerson(phoneNumber.getPerson());
         }
     }
 
