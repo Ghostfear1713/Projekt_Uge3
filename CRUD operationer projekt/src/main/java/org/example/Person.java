@@ -25,27 +25,32 @@ public class Person {
     private String firstName;
     private String lastName;
     private String address;
-    private int phoneNumber;
     private String email;
     private int age;
     private String hobby;
 
-    public Person(String firstName, String lastName, String address, String email, int age, String hobby) {
+
+    public Person(String firstName, String lastName, String address, String email, int age, String hobby, AgeGroup ageGroup) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.email = email;
         this.age = age;
         this.hobby = hobby;
+        this.ageGroup = ageGroup;
     }
 
-    public Person(String firstName, String lastName, String address, String email, int age) {
+    public Person(String firstName, String lastName, String address, String email, int age, AgeGroup ageGroup) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.email = email;
         this.age = age;
+        this.ageGroup = ageGroup;
     }
+
+    @Enumerated(EnumType.STRING)
+    private AgeGroup ageGroup;
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private Set<PhoneNumber> phoneNumbersFromPerson = new HashSet<>();
@@ -54,7 +59,7 @@ public class Person {
     public String toString() {
         return "Person ID #" + id + ": " + "\nFirstName: " + firstName +
                 " \nLastName: " + lastName +
-                " \nAddress: " + address + "\nPhonenumber: " + phoneNumber + "\nEmail: " + email + "\nAge: " + age + " \n______________________________";
+                " \nAddress: " + address + "\nHobby: " + hobby + "\nEmail: " + email + "\nAge: " + age + " \n______________________________";
     }
 
     public void addPersonNumber(PhoneNumber phoneNumber){

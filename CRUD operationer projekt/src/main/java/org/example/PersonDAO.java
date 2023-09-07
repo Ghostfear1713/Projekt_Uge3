@@ -33,6 +33,15 @@ public class PersonDAO {
         return  foundPerson;
     }
 
+    public Person updatePerson(Person person){
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Person updatedPerson = em.merge(person);
+        em.getTransaction().commit();
+        em.close();
+        return updatedPerson;
+    }
+
     public void deletePerson(int id){
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -47,13 +56,14 @@ public class PersonDAO {
         em.close();
     }
 
-    public void getAllPersons(){
-
+    public List<Person> getAllPersons(){
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.createQuery("SELECT p FROM Person p", Person.class).getResultList().forEach(System.out::println);
+        List<Person> personList = em.createQuery("SELECT p FROM Person p", Person.class).getResultList();
+        personList.forEach(System.out::println);
         em.getTransaction().commit();
         em.close();
+        return personList;
     }
 
     //TODO

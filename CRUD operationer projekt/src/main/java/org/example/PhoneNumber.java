@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Cascade;
 
 @NoArgsConstructor
 @ToString
@@ -17,7 +18,7 @@ public class PhoneNumber {
  private Integer iD;
  private String number;
 
- @ManyToOne
+ @ManyToOne(cascade = CascadeType.PERSIST)
  private Person person;
 
     public PhoneNumber(String number) {
