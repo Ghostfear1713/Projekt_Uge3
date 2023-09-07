@@ -1,6 +1,8 @@
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
+import java.util.List;
+
 public class PersonDAO {
 
     EntityManagerFactory emf = HibernateConfig.getEntityManagerFactoryConfig();
@@ -29,6 +31,15 @@ public class PersonDAO {
         return  foundPerson;
     }
 
+    public Person updatePerson(Person person){
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        Person updatedPerson = em.merge(person);
+        em.getTransaction().commit();
+        em.close();
+        return updatedPerson;
+    }
+
     public void deletePerson(int id){
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
@@ -43,13 +54,14 @@ public class PersonDAO {
         em.close();
     }
 
-    public void getAllPersons(){
-
+    public List<Person> getAllPersons(){
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        em.createQuery("SELECT p FROM Person p", Person.class).getResultList().forEach(System.out::println);
+        List<Person> personList = em.createQuery("SELECT p FROM Person p", Person.class).getResultList();
+        personList.forEach(System.out::println);
         em.getTransaction().commit();
         em.close();
+        return personList;
     }
 
     public void getInformationByPhoneNumber(int phoneNumber) {
@@ -60,5 +72,18 @@ public class PersonDAO {
         em.getTransaction().commit();
         em.close();
     }
+
+    //TODO
+    //MAKE A METHOD THAT UPDATES A PHONENUMBER
+
+//    public void updatePerson(int id){
+//        EntityManager em = emf.createEntityManager();
+//        em.getTransaction().begin();
+//        Person mergedPerson = findById(1);
+//
+//        em.getTransaction().commit();
+//        em.close();
+//    }
+
 
 }

@@ -57,6 +57,10 @@ public class HibernateConfig {
         configuration.addAnnotatedClass(HobbyDAO.class);
         configuration.addAnnotatedClass(CityInfo.class);
         configuration.addAnnotatedClass(CityInfoDAO.class);
+        configuration.addAnnotatedClass(PhoneNumber.class);
+        configuration.addAnnotatedClass(PhoneNumberDAO.class);
+        configuration.addAnnotatedClass(Hobby.class);
+        configuration.addAnnotatedClass(HobbyDAO.class);
     }
 
     public static EntityManagerFactory getEntityManagerFactoryConfig() {

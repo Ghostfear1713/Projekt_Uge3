@@ -1,3 +1,4 @@
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ public class Hobby {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer id;
 
     private String name;
@@ -75,4 +77,9 @@ public class Hobby {
     public void setPersons(List<Person> persons) {
         this.persons = persons;
     }
+
+    private Integer iD;
+    String hobbyName;
+
+
 }
