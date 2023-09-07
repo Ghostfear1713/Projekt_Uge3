@@ -28,6 +28,7 @@ public class Person {
     private String email;
     private int age;
     private String hobby;
+    private String city;
 
 
     public Person(String firstName, String lastName, String address, String email, int age, String hobby, AgeGroup ageGroup) {
@@ -46,6 +47,17 @@ public class Person {
         this.address = address;
         this.email = email;
         this.age = age;
+        this.ageGroup = ageGroup;
+    }
+
+    public Person(String firstName, String lastName, String address, String email, int age, String hobby, String city, AgeGroup ageGroup) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.email = email;
+        this.age = age;
+        this.hobby = hobby;
+        this.city = city;
         this.ageGroup = ageGroup;
     }
 

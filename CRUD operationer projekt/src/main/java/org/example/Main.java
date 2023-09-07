@@ -17,7 +17,7 @@ public class Main {
         PhoneNumber phoneNumber6 = new PhoneNumber("+45 20932222");
         PhoneNumber phoneNumber7 = new PhoneNumber("+45 52455423");
         PhoneNumber phoneNumber8 = new PhoneNumber("+45 837233211");
-        PhoneNumber phoneNumber9 = new PhoneNumber("+45 24466589");
+        PhoneNumber phoneNumber9 = new PhoneNumber("24466589");
         PhoneNumber phoneNumbe10 = new PhoneNumber("+45 44556677");
 
 
@@ -37,6 +37,9 @@ public class Main {
         Person p9 = new Person("Mogens", "Larsen", "Ballerupsvej 83 2. th", "Mogens@live.dk", 78, "Cricket", AgeGroup.Senior);
         Person p10 = new Person("Celine", "Petersen", "Søllegård 17", "Celine@live.dk", 14, "Tennis", AgeGroup.Junior);
 
+        Person p11 = new Person("Foxy", "Love", "Vejlebrovej", "uniton@live.dk", 30, "Swimming", "Lyngby", AgeGroup.Adult);
+        Person p12 = new Person("Foxiana", "Pure", "Hangover", "hahaa@live.dk", 30, "Shooting", "Lyngby", AgeGroup.Adult);
+
 
         //hobbyDAO.getAllHobbiesFromPerson("Swimming");
 //        String hobbyToCount = "Swimming";
@@ -47,11 +50,14 @@ public class Main {
 
         //hobbyDAO.getAllHobiesAndTheCount();
 
-        //p10.addPersonNumber(phoneNumber9);
-        //persondao.createPersons(p10);
+        p12.addPersonNumber(phoneNumber9);
 
-        persondao.getAllPersons();
+        persondao.createPersons(p12);
+
+        //persondao.getAllPersons();
         //phoneNumberDAO.getAllPhoneNumbersByPersonNameCaseNoneSensitive("Sofie");
+
+        //persondao.getPersonsInCity("Lyngby");
 
 
     }

@@ -2,6 +2,7 @@ package org.example;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.TypedQuery;
 
 import java.util.List;
 
@@ -65,6 +66,17 @@ public class PersonDAO {
         em.close();
         return personList;
     }
+
+    public List<Person> getPersonsInCity(String city) {
+        EntityManager em = emf.createEntityManager();
+
+        TypedQuery<Person> query = em.createQuery("SELECT p FROM Person p WHERE LOWER(p.city) = LOWER(:city)", Person.class).
+                setParameter("city", city);
+        query.getResultList().forEach(System.out::println);
+        return query.getResultList();
+
+    }
+
 
     //TODO
     //MAKE A METHOD THAT UPDATES A PHONENUMBER

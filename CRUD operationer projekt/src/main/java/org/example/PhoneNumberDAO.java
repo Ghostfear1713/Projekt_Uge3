@@ -24,8 +24,6 @@ public class PhoneNumberDAO {
         return query.getResultList();
     }
 
-
-
     public void getAllPhoneNumbersByPersonNameCaseNoneSensitive(String personName){
         em.getTransaction().begin();
         //LOWER converts the input parameter "personName" to lowercase before comparing it to the lowercase version of the firstname in the db
