@@ -68,6 +68,9 @@ public class Person {
     @OneToMany(mappedBy = "person", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<PhoneNumber> phoneNumbersFromPerson = new HashSet<>();
 
+    @OneToMany(mappedBy = "person", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<Hobby> hobbiesFromPerson = new HashSet<>();
+
     @Override
     public String toString() {
         return "Person ID #" + id + ": " + "\nFirstName: " + firstName +
@@ -82,5 +85,19 @@ public class Person {
         }
     }
 
+    public void addHobbyAndPhoneNumberToPerson(Hobby hobby, PhoneNumber phoneNumber){
+        this.phoneNumbersFromPerson.add(phoneNumber);
+        this.hobbiesFromPerson.add(hobby);
+        if(phoneNumbersFromPerson != null && hobbiesFromPerson  != null){
+            hobby.setPerson(this);
+            phoneNumber.setPerson(this);
+        }
+    }
 
+    public void addPersonHobby(Hobby hobby){
+        this.hobbiesFromPerson.add(hobby);
+        if(hobbiesFromPerson != null){
+            hobby.setPerson(this);
+        }
+    }
 }

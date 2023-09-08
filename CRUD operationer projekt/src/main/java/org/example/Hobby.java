@@ -1,10 +1,15 @@
 package org.example;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
+@NoArgsConstructor
+@ToString
+@Getter
+@Setter
 @Entity
 public class Hobby {
 
@@ -14,5 +19,11 @@ public class Hobby {
     String hobbyName;
 
 
+    //Will persist both the personobject and the hobby whenever we persist a person to DB
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    private Person person;
 
+    public Hobby(String hobbyName) {
+        this.hobbyName = hobbyName;
+    }
 }

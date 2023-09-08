@@ -5,8 +5,13 @@ import jakarta.persistence.EntityManagerFactory;
 
 public class Main {
     public static void main(String[] args) {
-
+        Hobby hobby = new Hobby();
+        HobbyDAO hobbyDAO = new HobbyDAO();
         PersonDAO persondao = new PersonDAO();
+
+
+
+
         PhoneNumberDAO phoneNumberDAO = new PhoneNumberDAO();
         PhoneNumber phoneNumber1 = new PhoneNumber("+45 35354949");
         PhoneNumber phoneNumber2 = new PhoneNumber("+45 30228291");
@@ -21,11 +26,6 @@ public class Main {
         PhoneNumber phoneNumber11 = new PhoneNumber("+45 99332111");
         PhoneNumber phoneNumber12 = new PhoneNumber("+45 42420612");
 
-
-        Hobby hobby = new Hobby();
-        HobbyDAO hobbyDAO = new HobbyDAO();
-
-
         Person p1 = new Person("Ketild", "Hansen", "Pjuskepuskvej 32", "drpjuskepusk@mail.dk", 53, "Professional Pimp", "Lyngby", AgeGroup.Adult);
         Person p2 = new Person("Abdi", "Hamad", "Pilegaardsvej, 38. st. tv.", "abdih@mail.dk", 25, "Professional Pimp", "Lyngby", AgeGroup.Adult);
         Person p3 = new Person("Sofie", "Soerensen", "Strandstræde, 8. 3. tv.", "sofies@mail.dk", 28, "Professional Pimp", "Lyngby", AgeGroup.Adult);
@@ -38,16 +38,24 @@ public class Main {
         Person p10 = new Person("Celine", "Petersen", "Søllegård 17", "Celine@live.dk", 14, "Tennis", "Hillerød", AgeGroup.Junior);
         Person p11 = new Person("Foxy", "Love", "Vejlebrovej", "uniton@live.dk", 30, "Swimming", "Lyngby", AgeGroup.Adult);
         Person p12 = new Person("Foxiana", "Pure", "Hangover", "hahaa@live.dk", 30, "Shooting", "Lyngby", AgeGroup.Adult);
+        Person p13 = new Person("Tania", "Gigantic", "Hangover", "hahaa@live.dk", 30,  "Lyngby", AgeGroup.Adult);
 
-        Person oldPerson = persondao.findById(2);
-        oldPerson.setFirstName("Philip");
-        persondao.updatePerson(oldPerson);
+        Hobby hobby1 = new Hobby("Gaming");
+
+
+        //Updating method to change ones firstName
+//        Person oldPerson = persondao.findById(2);
+//        oldPerson.setFirstName("Philip");
+//        persondao.updatePerson(oldPerson);
 
 
           //create a person with a phone number
 //          p1.addPersonNumber(phoneNumber1);
 //          persondao.createPersons(p1);
 
+        //adds are hobby and a phonenumber to a person by first taking in a hobby object and a phonenumber
+        p13.addHobbyAndPhoneNumberToPerson(hobby1, phoneNumber1);
+        persondao.createPersons(p13);
 
 
         //phoneNumberDAO.getAllPhoneNumbersByPersonNameCaseNoneSensitive("Ketild");
@@ -61,7 +69,7 @@ public class Main {
 
 
 
-        hobbyDAO.getAllHobbiesAndTheCount();
+
 
     }
 }
